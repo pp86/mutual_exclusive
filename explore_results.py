@@ -5,4 +5,4 @@ input_file = sys.argv[1]
 
 results = pd.read_csv(input_file, sep="\t")
 
-results.head()
+print(results.head())
