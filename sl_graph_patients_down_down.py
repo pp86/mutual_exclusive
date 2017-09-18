@@ -147,6 +147,13 @@ for k in cooccurences_null.keys():
 results = sorted(results, key = lambda x:x[2])
 
 with open("results/results_"+tumor_name+"_down_down_DDR_union.txt", "w") as f:
-    f.write("\t".join(["A", "B", "int", "edge swap", "hyperg", "hamming-int"]) + "\n")
+    f.write("\t".join(["A", "B", "mutA", "mutB", "int", "ES", "hyperg", "hdmi"]) + "\n")
     for r in results:
-        f.write("\t".join(map(str, [r[0][0], r[0][1], r[1], r[3], r[4], r[5]])) + "\n")
+        f.write("\t".join(map(str, [r[0][0],
+                                    r[0][1],
+                                    genes_mutation_count[r[0][0]][0],
+                                    genes_mutation_count[r[0][1]][0],
+                                    r[1],
+                                    r[3],
+                                    r[4],
+                                    r[5]])) + "\n")
