@@ -3,7 +3,7 @@ import sys
 
 patients_rna = []
 patients_cna = []
-ddr={'APC','ARID1A','RB1','NF1','BRCA1','BRCA2','PTEN','CDH1','ATM','TP53'}
+ddr={"PMS1", "PMS2","APC","ARID1A","RB1", "NF1","CTNNB1","DUSP4","DUSP6","MSH2", "MSH3","MSH6","MLH1", "PTEN", "CDH1", "TP53", "ATM", "BRCA1", "BRCA2"}
 graph = {}
 tot = 0
 
