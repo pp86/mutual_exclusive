@@ -64,7 +64,7 @@ print(len(graph.keys()))
 print("minori 2: " + str(tot))
 
 
-with open("data/brca_ddr_down_other_up.txt", "w") as f:
+with open("data/"+tumor+"_ddr_down_other_up.txt", "w") as f:
     for g in tqdm(graph.keys()):
         row = [g]
         for p in list(set(patients_cna).union(patients_rna)):
