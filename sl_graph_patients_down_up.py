@@ -14,7 +14,7 @@ S = 1000
 ddr_genes = set(["UNION_ATM_BRCAx","PMS1", "PMS2","APC","ARID1A","RB1", "NF1","CTNNB1","DUSP4","DUSP6","MSH2", "MSH3","MSH6","MLH1", "PTEN", "CDH1", "TP53", "ATM", "BRCA1", "BRCA2"])
 #ddr_genes = set(["TP53"])
 
-list_name_CNV = [parser_name(x) for x in open("data/"+tumor_name+"_down.txt")] + ["UNION_ATM_BRCAx"]
+list_name_CNV = [parser_name(x) for x in open("data/"+tumor_name+"_ddr_down_other_up.txt")] + ["UNION_ATM_BRCAx"]
 #list_name_ME = [parser_name(x) for x in open("data/BLCA_ME_filtered")]
 
 def parser_CNV(line):
