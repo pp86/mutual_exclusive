@@ -10,8 +10,27 @@ def parser_name(line):
     s = line.strip().split(",")
     return s[0]
 
-S = 1000
-ddr_genes = set(["UNION_ATM_BRCAx","PMS1", "PMS2","APC","ARID1A","RB1", "NF1","CTNNB1","DUSP4","DUSP6","MSH2", "MSH3","MSH6","MLH1", "PTEN", "CDH1", "TP53", "ATM", "BRCA1", "BRCA2"])
+S = 5000
+ddr_genes = set(["UNION_ATM_BRCAx",
+                 "PMS1",
+                 "PMS2",
+                 "APC",
+                 "ARID1A",
+                 "RB1",
+                 "NF1",
+                 "CTNNB1",
+                 "DUSP4",
+                 "DUSP6",
+                 "MSH2",
+                 "MSH3",
+                 "MSH6",
+                 "MLH1",
+                 "PTEN",
+                 "CDH1",
+                 "TP53",
+                 "ATM",
+                 "BRCA1",
+                 "BRCA2"])
 #ddr_genes = set(["TP53"])
 
 list_name_CNV = [parser_name(x) for x in open("data/"+tumor_name+"_ddr_down_other_up.txt")] + ["UNION_ATM_BRCAx"]
@@ -146,8 +165,8 @@ for k in cooccurences_null.keys():
 
 results = sorted(results, key = lambda x:x[2])
 
-with open("results/results_"+tumor_name+"_DDR_down_others_UP_union.txt", "w") as f:
-    f.write("\t".join(["A", "B", "mutA", "mutB", "int", "ES", "hyperg", "hdmi"]) + "\n")
+with open("results/results_"+tumor_name+"_DDR_down_others_UP_union_ahdmi.txt", "w") as f:
+    f.write("\t".join(["A", "B", "mutA", "mutB", "int", "ES", "hyperg", "hdmi", "ahdmi"]) + "\n")
     for r in results:
         f.write("\t".join(map(str, [r[0][0],
                                     r[0][1],
@@ -156,4 +175,6 @@ with open("results/results_"+tumor_name+"_DDR_down_others_UP_union.txt", "w") as
                                     r[1],
                                     r[3],
                                     r[4],
-                                    r[5]])) + "\n")
+                                    r[5],
+                                    2*float(min(genes_mutation_count[r[0][0]][0], genes_mutation_count[r[0][1]][0]))/float((genes_mutation_count[r[0][0]][0] + genes_mutation_count[r[0][1]][0]))*r[5]
+                                    ])) + "\n")
